@@ -8,7 +8,7 @@ public class Calculator extends JFrame implements ActionListener{
     private JFrame frame;
     private JTextField txtfield;
     private JButton[] numberButtons = new JButton[10];
-    private JButton[] functioButtons = new JButton[8];
+    private JButton[] functionButtons = new JButton[8];
     private JButton addButton, sButton, mulButton, divButton;
     private JButton decButton, equButton, delButton, clrButton;
     private JPanel panel;
@@ -50,21 +50,21 @@ public class Calculator extends JFrame implements ActionListener{
         clrButton = new JButton("Clear");
 
         //operator variable added in functioButtons array
-        functioButtons[0] = addButton;
-        functioButtons[1] = sButton;
-        functioButtons[2] = mulButton;
-        functioButtons[3] = divButton;
-        functioButtons[4] = decButton;
-        functioButtons[5] = equButton;
-        functioButtons[6] = delButton;
-        functioButtons[7] = clrButton;
+        functionButtons[0] = addButton;
+        functionButtons[1] = sButton;
+        functionButtons[2] = mulButton;
+        functionButtons[3] = divButton;
+        functionButtons[4] = decButton;
+        functionButtons[5] = equButton;
+        functionButtons[6] = delButton;
+        functionButtons[7] = clrButton;
 
         //add action listner & font size in operator through for loop
         for(int i=0; i<8; i++) {
-            functioButtons[i].addActionListener(this);
-            functioButtons[i].setFont(font);
-            functioButtons[i].setBackground(Color.GRAY);
-            functioButtons[i].setForeground(Color.BLACK);
+            functionButtons[i].addActionListener(this);
+            functionButtons[i].setFont(font);
+            functionButtons[i].setBackground(Color.GRAY);
+            functionButtons[i].setForeground(Color.BLACK);
         }
 
         //add action listner & font size in number button through for loop
@@ -112,6 +112,8 @@ public class Calculator extends JFrame implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        // set action performed of all number buttton
         for(int i=0; i<10; i++) {
             if(e.getSource() == numberButtons[i]) {
                 txtfield.setText(txtfield.getText().concat(String.valueOf(i)));
